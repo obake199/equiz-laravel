@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -14,8 +15,7 @@ class LoginController extends Controller
 
             return $registeredmsg;
         }
-
-        return;
+        return null;
     }
 
     public function loginCheck(Request $request) {
@@ -23,14 +23,19 @@ class LoginController extends Controller
     }
 
     public function RegisterAdmin(Request $request) {
-        User::insert([
+        $checkEmail = User::with(array())->where('email', '=', $request->email)->get();
+        //dd($checkEmail->get());
+        if (count($checkEmail) > 0) {
+            return array('error' => true, 'message' => 'Email already exists.');
+        }
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'username' => $request->username,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
         ]);
 
-        session(['registered' => 'You have successfully registered']);
+        // session(['registered' => 'You have successfully registered']);
 
         return 'success';
     }

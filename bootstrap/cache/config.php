@@ -4,7 +4,7 @@
     'name' => 'Laravel',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://equiz-laravel.test/',
+    'url' => 'http://equiz-laravel.test',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
@@ -361,7 +361,7 @@
       array (
         'driver' => 'local',
         'root' => 'C:\\laragon\\www\\equiz-laravel\\storage\\app/public',
-        'url' => 'http://equiz-laravel.test//storage',
+        'url' => 'http://equiz-laravel.test/storage',
         'visibility' => 'public',
       ),
       's3' => 

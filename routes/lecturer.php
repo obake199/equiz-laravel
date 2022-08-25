@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Lecturer\LecturerController;
+use App\Http\Controllers\Student\StudentController;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Admin Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -14,10 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::post('/loginCred', [LoginController::class, 'loginCheck']);
-Route::post('/registerAdmin', [LoginController::class, 'RegisterAdmin']);
-Route::get('/logindata', [LoginController::class, 'loginPage']);
+Route::get('/lecturer', [LecturerController::class, 'lecturerRoutes']);

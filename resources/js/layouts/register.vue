@@ -16,6 +16,9 @@
                             <v-divider></v-divider>
                             
                             <v-card-text>
+                                <v-alert type="error" v-if="error_message !== ''">
+                                    {{error_message}}
+                                </v-alert>
                                 <v-form ref="form">
                                     <v-text-field
                                         :rules="[rules.required]"
@@ -66,44 +69,48 @@
 export default {
    data: function () {
       return {
-         darkTheme: true,
-         // cred
-         form: {
-            name: '',
-            email: '',
-            username: '',
-            password: '',
-         },
+            darkTheme: true,
+            // cred
+            form: {
+                name: '',
+                email: '',
+                username: '',
+                password: '',
+            },
+            // if register unsuccessful
+            error_message: '',
 
-         show: false,
-         error: false,
-         rules: {
-            required: value => !!value || 'Required.',
-            min: v => v.length >= 8 || 'Min 8 characters',
-            emailMatch: () => (`The email and password you entered don't match`),
-            emailRules: v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-        },
+            show: false,
+            error: false,
+            rules: {
+                required: value => !!value || 'Required.',
+                min: v => v.length >= 8 || 'Min 8 characters',
+                emailMatch: () => (`The email and password you entered don't match`),
+                emailRules: v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+            },
       }
    },
    methods: {
         Register() {
             let valid = this.$refs.form.validate();
             if (valid) {
-                this.form.password = this.$md5(this.form.password);
                 this.axios.post('/registerAdmin', this.form).then(response => {
-                    this.$router.push({name: 'login'});
+                    let res = response.data
+                    if (res === 'success') {
+                        this.$router.push(
+                            {
+                                name: 'login',
+                                params: {
+                                    message: 'You have successfully registered!',
+                                }
+                            }
+                        );
+                    } else {
+                        this.error_message = res.message;
+                    }
                 })
             }
         },
-        handleRoute(value) {
-            if (value === 'back') {
-                window.open('/', '_self');
-            } else if (value === 'register') {
-                this.$router.push({
-                name: 'register',
-                })
-            }
-        }
    },
 
    mounted() {

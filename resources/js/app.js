@@ -10,7 +10,7 @@ require('./bootstrap');
 window.Vue = require('vue').default;
 
 import router from './router/routes.js';
-import App from './layouts/app.vue';
+import App from './components/app.vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import Vuetify from 'vuetify';
@@ -43,9 +43,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
  const app = new Vue({
     router,
-    vuetify: new Vuetify({
-        theme: { dark : true }
-    }),
+    vuetify: new Vuetify(),
     el: '#app',
     render: h => h(App)
 });

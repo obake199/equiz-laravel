@@ -55,7 +55,14 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+
+Vue.use(VueRouter);
 export default {
+   components: {
+      VueRouter,
+   },
    data: function () {
       return {
          darkTheme: true,
@@ -89,16 +96,12 @@ export default {
             })
          }
       },
-      getLoginCommon() {
-         this.axios.get('/logindata').then(response => {
-            let res = response.data;
-            this.registerSession = res;
-         })
-      }
    },
 
    mounted() {
-      this.getLoginCommon();
+      if (this.$route.params.message) {
+         this.registerSession = this.$route.params.message;
+      }
    }
 }
 </script>
