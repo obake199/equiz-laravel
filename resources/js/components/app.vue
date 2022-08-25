@@ -10,13 +10,11 @@
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title v-if="flash !== '/'">Application</v-toolbar-title>
+      <v-toolbar-title>Application</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
-      <Transition>
-        <router-view></router-view>
-      </Transition>
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
