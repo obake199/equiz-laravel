@@ -18,7 +18,9 @@
 				<div class="col">
 					<h1>Welcome to<br>Spaper</h1>
 					<p>Created from a single passionate developer to bring the best quiz system to create a better solution for the students studying from home, or anywhere in the world.</p>
-					<button type="button" class="btn btn-dark btn-large" href="/login" id="btnlogin">Login</button>
+					<a class="btn btn-dark btn-large" href="/login" style="max-width: 50%; border-radius: 50px !important;">
+						Login
+					</a>
 				</div>
 				<div class="col img-col">
 					<img src={{asset("/img/homepage/hero-img.png")}} class="img-fluid" alt="Software Development" style="width:400px;">

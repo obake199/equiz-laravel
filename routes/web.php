@@ -18,6 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login', function () {
+    # testing
+    # datadumping();
+    return view('sign-in.index');
+});
+
 Route::post('/loginCred', [LoginController::class, 'loginCheck']);
 Route::post('/registerAdmin', [LoginController::class, 'RegisterAdmin']);
 Route::get('/logindata', [LoginController::class, 'loginPage']);

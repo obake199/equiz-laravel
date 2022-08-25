@@ -36,10 +36,11 @@
       19 => 'Illuminate\\Translation\\TranslationServiceProvider',
       20 => 'Illuminate\\Validation\\ValidationServiceProvider',
       21 => 'Illuminate\\View\\ViewServiceProvider',
-      22 => 'App\\Providers\\AppServiceProvider',
-      23 => 'App\\Providers\\AuthServiceProvider',
-      24 => 'App\\Providers\\EventServiceProvider',
-      25 => 'App\\Providers\\RouteServiceProvider',
+      22 => 'Barryvdh\\Debugbar\\ServiceProvider',
+      23 => 'App\\Providers\\AppServiceProvider',
+      24 => 'App\\Providers\\AuthServiceProvider',
+      25 => 'App\\Providers\\EventServiceProvider',
+      26 => 'App\\Providers\\RouteServiceProvider',
     ),
     'aliases' => 
     array (
@@ -81,6 +82,7 @@
       'URL' => 'Illuminate\\Support\\Facades\\URL',
       'Validator' => 'Illuminate\\Support\\Facades\\Validator',
       'View' => 'Illuminate\\Support\\Facades\\View',
+      'Debugbar' => 'Barryvdh\\Debugbar\\Facade',
     ),
   ),
   'auth' => 
@@ -184,7 +186,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\laragon\\www\\equiz-laravel\\storage\\framework/cache/data',
+        'path' => 'C:\\laragon\\www\\equiz-laravel-git\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -355,12 +357,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\laragon\\www\\equiz-laravel\\storage\\app',
+        'root' => 'C:\\laragon\\www\\equiz-laravel-git\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\laragon\\www\\equiz-laravel\\storage\\app/public',
+        'root' => 'C:\\laragon\\www\\equiz-laravel-git\\storage\\app/public',
         'url' => 'http://equiz-laravel.test/storage',
         'visibility' => 'public',
       ),
@@ -378,7 +380,7 @@
     ),
     'links' => 
     array (
-      'C:\\laragon\\www\\equiz-laravel\\public\\storage' => 'C:\\laragon\\www\\equiz-laravel\\storage\\app/public',
+      'C:\\laragon\\www\\equiz-laravel-git\\public\\storage' => 'C:\\laragon\\www\\equiz-laravel-git\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -413,13 +415,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\laragon\\www\\equiz-laravel\\storage\\logs/laravel.log',
+        'path' => 'C:\\laragon\\www\\equiz-laravel-git\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\laragon\\www\\equiz-laravel\\storage\\logs/laravel.log',
+        'path' => 'C:\\laragon\\www\\equiz-laravel-git\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -470,7 +472,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\laragon\\www\\equiz-laravel\\storage\\logs/laravel.log',
+        'path' => 'C:\\laragon\\www\\equiz-laravel-git\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -536,7 +538,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\laragon\\www\\equiz-laravel\\resources\\views/vendor/mail',
+        0 => 'C:\\laragon\\www\\equiz-laravel-git\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -641,7 +643,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\laragon\\www\\equiz-laravel\\storage\\framework/sessions',
+    'files' => 'C:\\laragon\\www\\equiz-laravel-git\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -661,9 +663,115 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\laragon\\www\\equiz-laravel\\resources\\views',
+      0 => 'C:\\laragon\\www\\equiz-laravel-git\\resources\\views',
     ),
-    'compiled' => 'C:\\laragon\\www\\equiz-laravel\\storage\\framework\\views',
+    'compiled' => 'C:\\laragon\\www\\equiz-laravel-git\\storage\\framework\\views',
+  ),
+  'debugbar' => 
+  array (
+    'enabled' => NULL,
+    'except' => 
+    array (
+      0 => 'telescope*',
+      1 => 'horizon*',
+    ),
+    'storage' => 
+    array (
+      'enabled' => true,
+      'driver' => 'file',
+      'path' => 'C:\\laragon\\www\\equiz-laravel-git\\storage\\debugbar',
+      'connection' => NULL,
+      'provider' => '',
+      'hostname' => '127.0.0.1',
+      'port' => 2304,
+    ),
+    'editor' => 'phpstorm',
+    'remote_sites_path' => '',
+    'local_sites_path' => '',
+    'include_vendors' => true,
+    'capture_ajax' => true,
+    'add_ajax_timing' => false,
+    'error_handler' => false,
+    'clockwork' => false,
+    'collectors' => 
+    array (
+      'phpinfo' => true,
+      'messages' => true,
+      'time' => true,
+      'memory' => true,
+      'exceptions' => true,
+      'log' => true,
+      'db' => true,
+      'views' => true,
+      'route' => true,
+      'auth' => false,
+      'gate' => true,
+      'session' => true,
+      'symfony_request' => true,
+      'mail' => true,
+      'laravel' => false,
+      'events' => false,
+      'default_request' => false,
+      'logs' => false,
+      'files' => false,
+      'config' => false,
+      'cache' => false,
+      'models' => true,
+      'livewire' => true,
+    ),
+    'options' => 
+    array (
+      'auth' => 
+      array (
+        'show_name' => true,
+      ),
+      'db' => 
+      array (
+        'with_params' => true,
+        'backtrace' => true,
+        'backtrace_exclude_paths' => 
+        array (
+        ),
+        'timeline' => false,
+        'duration_background' => true,
+        'explain' => 
+        array (
+          'enabled' => false,
+          'types' => 
+          array (
+            0 => 'SELECT',
+          ),
+        ),
+        'hints' => false,
+        'show_copy' => false,
+      ),
+      'mail' => 
+      array (
+        'full_log' => false,
+      ),
+      'views' => 
+      array (
+        'timeline' => false,
+        'data' => false,
+      ),
+      'route' => 
+      array (
+        'label' => true,
+      ),
+      'logs' => 
+      array (
+        'file' => NULL,
+      ),
+      'cache' => 
+      array (
+        'values' => true,
+      ),
+    ),
+    'inject' => true,
+    'route_prefix' => '_debugbar',
+    'route_domain' => NULL,
+    'theme' => 'auto',
+    'debug_backtrace_limit' => 50,
   ),
   'flare' => 
   array (
