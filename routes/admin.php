@@ -15,4 +15,6 @@ use App\Http\Controllers\Admin\AdminController;
 */
 
 
-Route::get('/admin', [AdminController::class, 'adminRoutes']);
+Route::prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'adminRoutes']);
+});

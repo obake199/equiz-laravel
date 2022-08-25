@@ -15,5 +15,6 @@ use App\Http\Controllers\Student\StudentController;
 |
 */
 
-
-Route::get('/student', [StudentController::class, 'studentRoutes']);
+Route::prefix('student')->group(function () {
+    Route::get('/', [StudentController::class, 'studentRoutes']);
+});
