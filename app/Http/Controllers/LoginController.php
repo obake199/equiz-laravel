@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Error;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -19,24 +22,32 @@ class LoginController extends Controller
     }
 
     public function loginCheck(Request $request) {
-        dd($request->all());
+        $validator = Validator::make(
+            array(
+                'email'    => $request->email,
+                'password' => $request->password
+            ),
+            array(
+                'name'     => 'required',
+                'email'    => 'required | email',
+                'password' => 'required',
+            )
+        );
+        return Redirect::back()->withErrors(['msg' => 'Email or password you entered is wrong']);
     }
 
-    public function RegisterAdmin(Request $request) {
+    public function RegisterUser(Request $request) {
         $checkEmail = User::with(array())->where('email', '=', $request->email)->get();
-        //dd($checkEmail->get());
         if (count($checkEmail) > 0) {
-            return array('error' => true, 'message' => 'Email already exists.');
+            return Redirect::back()->withErrors(['msg' => 'Email already exists.']);
         }
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'username' => $request->username,
+            'new_user' => 0,
             'password' => Hash::make($request->password),
         ]);
 
-        // session(['registered' => 'You have successfully registered']);
-
-        return 'success';
+        return Redirect('/login')->with(['success' => 'You have successfully registered!']);
     }
 }

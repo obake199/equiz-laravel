@@ -15,7 +15,7 @@
 	<section id="hero">
 		<div class="container">
 			<div class="row">
-				<div class="col">
+				<div class="col smol">
 					<h1>Welcome to<br>Spaper</h1>
 					<p>Created from a single passionate developer to bring the best quiz system to create a better solution for the students studying from home, or anywhere in the world.</p>
 					<a class="btn btn-dark btn-large" href="/login" style="max-width: 50%; border-radius: 50px !important;">
@@ -69,7 +69,7 @@
           		</div>
           		<div class="col text-col">
               		<h1>About Us</h1>
-              		<p>As a developer, we are motivated and striving to create a completely flexible and a good system environment for the teachers and students to work with.</p>
+              		<p>As a developer, I am motivated and striving to create a completely flexible and a good system environment for the teachers and students to work with.</p>
           		</div>
           	</div>
       	</div>
@@ -166,4 +166,10 @@
     text-align: center;
     color: white;
   }
+
+@media (max-width: 768px) {
+    .smol {
+        margin-top: 15%;
+    }
+}
 </style>

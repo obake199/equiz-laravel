@@ -19,11 +19,15 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () {
-    # testing
-    # datadumping();
     return view('sign-in.index');
-});
+})->name('login');
 
-Route::post('/loginCred', [LoginController::class, 'loginCheck']);
-Route::post('/registerAdmin', [LoginController::class, 'RegisterAdmin']);
-Route::get('/logindata', [LoginController::class, 'loginPage']);
+Route::get('/register', function () {
+    return view('sign-in.register');
+})->name('register');
+
+
+# CONTROLLER ROUTES
+Route::post('/postlogin', [LoginController::class, 'loginCheck']);
+Route::post('/postregister', [LoginController::class, 'RegisterUser']);
+// Route::get('/logindata', [LoginController::class, 'loginPage']);
