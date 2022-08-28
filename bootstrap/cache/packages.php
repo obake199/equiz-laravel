@@ -28,6 +28,17 @@
       0 => 'Fruitcake\\Cors\\CorsServiceProvider',
     ),
   ),
+  'laracasts/utilities' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Laracasts\\Utilities\\JavaScript\\JavaScriptServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'JavaScript' => 'Laracasts\\Utilities\\JavaScript\\JavaScriptFacade',
+    ),
+  ),
   'laravel/sail' => 
   array (
     'providers' => 

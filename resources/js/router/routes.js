@@ -5,7 +5,7 @@ Vue.use(VueRouter);
 // Page Files
 import Login from './../layouts/login.vue';
 import Register from './../layouts/register.vue';
-import Dashboard from './../layouts/admin/dashboard.vue';
+import Dashboard from './../layouts/student/dashboard.vue';
 
 const router = new VueRouter({
     mode: 'history',
@@ -16,20 +16,25 @@ const router = new VueRouter({
     },
 
     routes: [
+        // {
+        //     path: '/login',
+        //     name: 'login',
+        //     props: true,
+        //     component: () => import('./../layouts/login.vue'),
+        // },
+        // {
+        //     path: '/register',
+        //     name: 'register',
+        //     component: Register,
+        // },
+        // {
+        //     path: '/student',
+        //     name: 'dashboard',
+        //     component: Dashboard,
+        // },
         {
-            path: '/login',
-            name: 'login',
-            props: true,
-            component: () => import('./../layouts/login.vue'),
-        },
-        {
-            path: '/register',
-            name: 'register',
-            component: Register,
-        },
-        {
-            path: '/admin/dashboard',
-            name: 'admin-dashboard',
+            path: '/student/dashboard',
+            name: 'dashboard',
             component: Dashboard,
         },
     ]

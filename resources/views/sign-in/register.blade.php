@@ -17,6 +17,10 @@
                 <label for="floatingName">Name</label>
             </div>
             <div class="form-floating">
+                <input type="text" name="username" class="form-control" id="floatingUsername" placeholder="Username">
+                <label for="floatingUsername">Username</label>
+            </div>
+            <div class="form-floating">
                 <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
             </div>

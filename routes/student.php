@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Student\StudentController;
+use App\Models\StudentClass;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,11 @@ use App\Http\Controllers\Student\StudentController;
 |
 */
 
-Route::prefix('student')->group(function () {
-    Route::get('/', [StudentController::class, 'studentRoutes']);
+
+Route::group(['middleware' => 'student'], function () {
+    Route::get('/{any}', [StudentController::class, 'index'])->where('any', '[A-Za-z]+');
+
+    Route::group(['prefix' => 'api', 'as' => '.api'], function () {
+        Route::get('/data', [StudentController::class, 'data']);
+    });
 });

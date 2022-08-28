@@ -1,18 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-    >
-      <!--  -->
-    </v-navigation-drawer>
-
-    <v-app-bar app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Application</v-toolbar-title>
-    </v-app-bar>
-
+    <Side></Side>
     <v-main>
       <router-view></router-view>
     </v-main>
@@ -20,28 +8,22 @@
 </template>
 
 <script>
+  import SideHead from '../../js/reusable/SideHead.vue';
   export default {
+    name: "App",
+    components: {
+      'Side': SideHead,
+    },
     data: function () {
-      return {
-        drawer: false,
-        flash: this.$route.path
-      }
+      return {}
     },
 
-    mounted() {
-      // console.log(this.$route.path);
-    }
+    method: {
+
+    },
+
+    // mounted() {
+    //   this.hi();
+    // }
   }
 </script>
-
-<style>
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.1s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-</style>

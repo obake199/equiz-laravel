@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/login', function () {
     return view('sign-in.index');
@@ -29,5 +31,5 @@ Route::get('/register', function () {
 
 # CONTROLLER ROUTES
 Route::post('/postlogin', [LoginController::class, 'loginCheck']);
-Route::post('/postregister', [LoginController::class, 'RegisterUser']);
+Route::post('/postregister', [LoginController::class, 'RegisterStudent']);
 // Route::get('/logindata', [LoginController::class, 'loginPage']);

@@ -15,4 +15,6 @@ use App\Http\Controllers\Admin\AdminController;
 */
 
 
-Route::get('/', [AdminController::class, 'adminRoutes']);
+Route::middleware('auth')->group(function () {
+    Route::get('/', [AdminController::class, 'adminRoutes']);
+});

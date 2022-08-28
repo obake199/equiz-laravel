@@ -13,4 +13,8 @@
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css" rel="stylesheet">
 </head>
 
-</html>
+<div id="app">
+    <App></App>
+</div>
+
+<script src="{{ asset('js/app.js') }}"></script>

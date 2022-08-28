@@ -90,15 +90,26 @@
   array (
     'defaults' => 
     array (
-      'guard' => 'web',
-      'passwords' => 'users',
+      'guard' => 'api',
+      'passwords' => 'students',
     ),
     'guards' => 
     array (
-      'web' => 
+      'api' => 
+      array (
+        'driver' => 'token',
+        'provider' => 'students',
+        'hash' => true,
+      ),
+      'student' => 
       array (
         'driver' => 'session',
-        'provider' => 'users',
+        'provider' => 'students',
+      ),
+      'lecturer' => 
+      array (
+        'driver' => 'session',
+        'provider' => 'lecturers',
       ),
       'sanctum' => 
       array (
@@ -108,20 +119,26 @@
     ),
     'providers' => 
     array (
-      'users' => 
+      'lecturers' => 
       array (
         'driver' => 'eloquent',
-        'model' => 'App\\Models\\User',
+        'model' => 'App\\Models\\Lecturer',
+      ),
+      'students' => 
+      array (
+        'driver' => 'eloquent',
+        'model' => 'App\\Models\\Student',
       ),
     ),
     'passwords' => 
     array (
-      'users' => 
+      'lecturers' => 
       array (
-        'provider' => 'users',
-        'table' => 'password_resets',
-        'expire' => 60,
-        'throttle' => 60,
+        'provider' => 'lecturers',
+      ),
+      'students' => 
+      array (
+        'provider' => 'students',
       ),
     ),
     'password_timeout' => 10800,
@@ -916,6 +933,11 @@
     'remote_sites_path' => '',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
+  ),
+  'javascript' => 
+  array (
+    'bind_js_vars_to_this_view' => 'footer',
+    'js_namespace' => 'window',
   ),
   'tinker' => 
   array (

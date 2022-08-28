@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
-use App\Models\User;
 use Error;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -12,13 +13,7 @@ use Illuminate\Support\Facades\Validator;
 class LoginController extends Controller
 {
     public function loginPage() {
-        if (session('registered')) {
-            $registeredmsg = session('registered');
-            session()->forget('registered');
-
-            return $registeredmsg;
-        }
-        return null;
+        
     }
 
     public function loginCheck(Request $request) {
@@ -28,21 +23,34 @@ class LoginController extends Controller
                 'password' => $request->password
             ),
             array(
-                'name'     => 'required',
+                //'name'     => 'required',
                 'email'    => 'required | email',
                 'password' => 'required',
             )
         );
+        if ($validator->fails())
         return Redirect::back()->withErrors(['msg' => 'Email or password you entered is wrong']);
+        $user = array(
+            'email' => $request->email,
+            'password' => $request->password,
+        );
+
+        if (Auth::guard('student')->attempt($user)) {
+            return Redirect::to('/student/dashboard');
+        }
     }
 
-    public function RegisterUser(Request $request) {
-        $checkEmail = User::with(array())->where('email', '=', $request->email)->get();
+    public function RegisterStudent(Request $request) {
+        $checkEmail = Student::with(array())
+            ->where('email', '=', $request->email)
+            ->orWhere('username', '=', $request->username)
+            ->get();
         if (count($checkEmail) > 0) {
             return Redirect::back()->withErrors(['msg' => 'Email already exists.']);
         }
-        User::create([
-            'name' => $request->name,
+        Student::create([
+            'username' => $request->username,
+            'fullname' => $request->name,
             'email' => $request->email,
             'new_user' => 0,
             'password' => Hash::make($request->password),
