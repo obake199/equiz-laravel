@@ -18,6 +18,11 @@ class StudentController extends Controller
     }
 
     public function data() {
-        dd(Auth::guard('student')->user());
+        return Auth::guard('student')->user();
+    }
+
+    public function logout() {
+        Auth::guard('student')->logout();
+        return Redirect::to('/login');
     }
 }

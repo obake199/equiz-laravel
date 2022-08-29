@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Student\StudentController;
+use App\Models\Student;
 use App\Models\StudentClass;
 
 /*
@@ -20,7 +21,8 @@ use App\Models\StudentClass;
 Route::group(['middleware' => 'student'], function () {
     Route::get('/{any}', [StudentController::class, 'index'])->where('any', '[A-Za-z]+');
 
-    Route::group(['prefix' => 'api', 'as' => '.api'], function () {
+    Route::group(['prefix' => 'api'], function () {
         Route::get('/data', [StudentController::class, 'data']);
+        Route::get('/logout', [StudentController::class, 'logout']);
     });
 });

@@ -7,10 +7,10 @@
         <v-list-item>
             <v-list-item-content>
             <v-list-item-title class="text-h6">
-                Application
+                {{studentName}}
             </v-list-item-title>
             <v-list-item-subtitle>
-                subtext
+                Logged In
             </v-list-item-subtitle>
             </v-list-item-content>
         </v-list-item>
@@ -41,6 +41,14 @@
             </v-list-item>
             </v-list-item-group>
         </v-list>
+
+        <template v-slot:append>
+            <div class="pa-2">
+                <v-btn block @click="logout">
+                    Logout
+                </v-btn>
+            </div>
+        </template>
         </v-navigation-drawer>
 
         <v-app-bar app>
@@ -57,22 +65,26 @@ export default {
       return {
         drawer: null,
         group: null,
+        studentName: '',
       }
     },
 
     created() {
-        // this.getData();
-        this.axios.get('/student/studentdata').then(response => {
-            console.log(response)
-        })
+        this.getData();
     },
 
-    method: {
-        // getData() {
-        //     this.axios.get('/studentdata').then(response => {
-        //         console.log(response)
-        //     })
-        // },
+    methods: {
+        getData() {
+            this.axios.get('/student/api/data').then(response => {
+                this.studentName = response.data.fullname
+            })
+        },
+
+        logout() {
+            this.axios.get('/student/api/logout').then(() => {
+                location.reload();
+            });
+        }
     },
 }
 </script>

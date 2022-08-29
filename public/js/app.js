@@ -5715,24 +5715,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       drawer: null,
-      group: null
+      group: null,
+      studentName: ''
     };
   },
   created: function created() {
-    // this.getData();
-    this.axios.get('/student/studentdata').then(function (response) {
-      console.log(response);
-    });
+    this.getData();
   },
-  method: {// getData() {
-    //     this.axios.get('/studentdata').then(response => {
-    //         console.log(response)
-    //     })
-    // },
+  methods: {
+    getData: function getData() {
+      var _this = this;
+
+      this.axios.get('/student/api/data').then(function (response) {
+        _this.studentName = response.data.fullname;
+      });
+    },
+    logout: function logout() {
+      this.axios.get('/student/api/logout').then(function () {
+        location.reload();
+      });
+    }
   }
 });
 
@@ -30588,6 +30602,28 @@ var render = function () {
         "v-navigation-drawer",
         {
           attrs: { app: "" },
+          scopedSlots: _vm._u([
+            {
+              key: "append",
+              fn: function () {
+                return [
+                  _c(
+                    "div",
+                    { staticClass: "pa-2" },
+                    [
+                      _c(
+                        "v-btn",
+                        { attrs: { block: "" }, on: { click: _vm.logout } },
+                        [_vm._v("\n                Logout\n            ")]
+                      ),
+                    ],
+                    1
+                  ),
+                ]
+              },
+              proxy: true,
+            },
+          ]),
           model: {
             value: _vm.drawer,
             callback: function ($$v) {
@@ -30604,11 +30640,13 @@ var render = function () {
                 "v-list-item-content",
                 [
                   _c("v-list-item-title", { staticClass: "text-h6" }, [
-                    _vm._v("\n            Application\n        "),
+                    _vm._v(
+                      "\n            " + _vm._s(_vm.studentName) + "\n        "
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("v-list-item-subtitle", [
-                    _vm._v("\n            subtext\n        "),
+                    _vm._v("\n            Logged In\n        "),
                   ]),
                 ],
                 1
