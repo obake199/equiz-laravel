@@ -15,7 +15,8 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
-import md5 from 'js-md5' ;
+import md5 from 'js-md5';
+import "mdi-icons/css/materialdesignicons.min.css";
 import method from './method.js';
 window.method = method;
 Vue.prototype.$md5 = md5;
@@ -45,7 +46,9 @@ Vue.component('App', App);
 
  const app = new Vue({
     router,
-    vuetify: new Vuetify(),
+    vuetify: new Vuetify({
+        //theme: { dark: true },
+    }),
     el: '#app',
     render: h => h(App)
 });

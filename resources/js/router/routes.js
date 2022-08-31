@@ -16,22 +16,6 @@ const router = new VueRouter({
     },
 
     routes: [
-        // {
-        //     path: '/login',
-        //     name: 'login',
-        //     props: true,
-        //     component: () => import('./../layouts/login.vue'),
-        // },
-        // {
-        //     path: '/register',
-        //     name: 'register',
-        //     component: Register,
-        // },
-        // {
-        //     path: '/student',
-        //     name: 'dashboard',
-        //     component: Dashboard,
-        // },
         {
             path: '/student/dashboard',
             name: 'dashboard',

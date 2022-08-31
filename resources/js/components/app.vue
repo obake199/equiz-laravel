@@ -1,8 +1,13 @@
 <template>
   <v-app id="inspire">
     <Side></Side>
-    <v-main>
-      <router-view></router-view>
+    <v-main
+      
+    >
+      <router-view
+        id="scrolling-techniques-3"
+        class="overflow-y-auto"
+      ></router-view>
     </v-main>
   </v-app>
 </template>
