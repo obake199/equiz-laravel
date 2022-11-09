@@ -5792,6 +5792,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -31104,6 +31108,16 @@ var render = function () {
                                     key: "activator",
                                     fn: function () {
                                       return [
+                                        _c(
+                                          "v-list-item-icon",
+                                          [
+                                            _c("v-icon", [
+                                              _vm._v(_vm._s(item.icon)),
+                                            ]),
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
                                         _c(
                                           "v-list-item-content",
                                           [
