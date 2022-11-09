@@ -13,6 +13,6 @@ class AdminController extends Controller
     }
 
     public function adminRoutes(){
-        dd(123);    
+        dd(123);
     }
 }

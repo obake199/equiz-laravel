@@ -19,7 +19,7 @@ const router = new VueRouter({
         {
             path: '/student/dashboard',
             name: 'dashboard',
-            component: Dashboard,
+            component: Dashboard
         },
     ]
 })

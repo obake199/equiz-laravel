@@ -11,8 +11,10 @@ class Student extends Authenticatable
 {
     use HasFactory, SoftDeletes;
 
+    protected $table = 'student';
+    protected $primaryKey = 'student_id';
+    protected $guarded = ['student_id'];
     protected $guard = 'student';
-
     protected $fillable = [
         'fullname',
         'username',
@@ -20,9 +22,6 @@ class Student extends Authenticatable
         'password',
     ];
 
-    protected $table = 'student';
-
-    protected $hidden = [
-        'password',
-    ];
+    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
+    protected $hidden = ['password'];
 }

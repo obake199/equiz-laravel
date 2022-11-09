@@ -10,7 +10,7 @@
                 {{username}}
             </v-list-item-title>
             <v-card-actions>
-                <v-btn 
+                <v-btn
                     block
                     depressed
                     @click="profileMore = !profileMore"
@@ -41,30 +41,56 @@
             <v-list-item-group
             v-model="group"
             >
-            <v-list-item
-                v-for="item in items"
-                :key="item.title"
-                link
-                :to="item.path"
-            >
-            <v-list-item-icon>
-                <v-icon>{{item.icon}}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-                <v-list-item-title>
-                    {{item.title}}
-                </v-list-item-title>
-            </v-list-item-content>
-            </v-list-item>
+                <div v-for="(item, i) in items">
+                    <v-list-item
+                        v-if="!item.items"
+                        :key="i"
+                        link
+                        :to="item.path"
+                    >
+                        <v-list-item-icon>
+                            <v-icon>{{item.icon}}</v-icon>
+                        </v-list-item-icon>
+
+                        <v-list-item-content>
+                            <v-list-item-title>
+                                {{item.title}}
+                            </v-list-item-title>
+                        </v-list-item-content>
+
+                    </v-list-item>
+
+                    <v-list-group
+                        v-else
+                        :key="item.title"
+                        no-action
+                    >
+                        <template v-slot:activator>
+                            <v-list-item-content>
+                                <v-list-item-title>
+                                    {{ item.title }}
+                                </v-list-item-title>
+                            </v-list-item-content>
+                        </template>
+                        <v-list-item
+                            v-for="child in item.items"
+                            link
+                            :to="child.path"
+                            :key="child.title"
+                        >
+                            <v-list-item-title v-text="child.title" />
+                        </v-list-item>
+                    </v-list-group>
+                </div>
             </v-list-item-group>
         </v-list>
 
         <template v-slot:append>
-            
+
         </template>
         </v-navigation-drawer>
 
-        <v-app-bar 
+        <v-app-bar
             app
             elevate-on-scroll
             color="#14213D"
@@ -100,9 +126,23 @@ export default {
         items: [
             {
                 title: 'Dashboard',
-                icon: 'mdi-view-dashboard', 
+                icon: 'mdi-view-dashboard',
                 path: '/student/dashboard',
             },
+            {
+                title: 'Class',
+                icon: 'mdi-school',
+                items: [
+                    {
+                        title: 'Classes',
+                        path: '/student/class/list'
+                    },
+                    {
+                        title: 'Register Classes',
+                        path: '/student/class/register',
+                    }
+                ]
+            }
         ]
       }
     },

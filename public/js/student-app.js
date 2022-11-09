@@ -5648,115 +5648,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   method: {
     getData: function getData() {
@@ -5875,6 +5766,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -5886,6 +5803,16 @@ __webpack_require__.r(__webpack_exports__);
         title: 'Dashboard',
         icon: 'mdi-view-dashboard',
         path: '/student/dashboard'
+      }, {
+        title: 'Class',
+        icon: 'mdi-school',
+        items: [{
+          title: 'Classes',
+          path: '/student/class/list'
+        }, {
+          title: 'Register Classes',
+          path: '/student/class/register'
+        }]
       }]
     };
   },
@@ -6016,13 +5943,14 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var _router_student_routes_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./router/student-routes.js */ "./resources/js/router/student-routes.js");
 /* harmony import */ var _components_app_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/app.vue */ "./resources/js/components/app.vue");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.esm.min.js");
-/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
-/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
+/* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var vuetify_dist_vuetify_min_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/dist/vuetify.min.css */ "./node_modules/vuetify/dist/vuetify.min.css");
 /* harmony import */ var js_md5__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! js-md5 */ "./node_modules/js-md5/src/md5.js");
 /* harmony import */ var js_md5__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(js_md5__WEBPACK_IMPORTED_MODULE_5__);
@@ -6033,6 +5961,8 @@ __webpack_require__.r(__webpack_exports__);
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
@@ -6046,9 +5976,9 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 
 
 window.method = _method_js__WEBPACK_IMPORTED_MODULE_7__["default"];
-Vue.prototype.$md5 = (js_md5__WEBPACK_IMPORTED_MODULE_5___default());
-Vue.use(vue_axios__WEBPACK_IMPORTED_MODULE_3__["default"], (axios__WEBPACK_IMPORTED_MODULE_2___default()));
-Vue.use((vuetify__WEBPACK_IMPORTED_MODULE_8___default()));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].prototype.$md5 = (js_md5__WEBPACK_IMPORTED_MODULE_5___default());
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].use(vue_axios__WEBPACK_IMPORTED_MODULE_3__["default"], (axios__WEBPACK_IMPORTED_MODULE_2___default()));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].use((vuetify__WEBPACK_IMPORTED_MODULE_9___default()));
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
 /**
  * The following block of code may be used to automatically register your
@@ -6061,16 +5991,16 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component('App', _components_app_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('App', _components_app_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new Vue({
+var app = new vue__WEBPACK_IMPORTED_MODULE_8__["default"]({
   router: _router_student_routes_js__WEBPACK_IMPORTED_MODULE_0__["default"],
-  vuetify: new (vuetify__WEBPACK_IMPORTED_MODULE_8___default())({//theme: { dark: true },
+  vuetify: new (vuetify__WEBPACK_IMPORTED_MODULE_9___default())({//theme: { dark: true },
   }),
   el: '#app',
   render: function render(h) {
@@ -30884,136 +30814,94 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header text-dark" }, [
-              _vm._v("User Component"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body text-dark" }, [
-              _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                    "
+        _c("div", { staticClass: "col" }, [
+          _c(
+            "div",
+            {
+              staticClass: "carousel slide",
+              attrs: {
+                id: "carouselExampleControls",
+                "data-bs-ride": "carousel",
+              },
+            },
+            [
+              _c("div", { staticClass: "carousel-inner" }, [
+                _c("div", { staticClass: "carousel-item active" }, [
+                  _c("img", {
+                    staticClass: "d-block w-100",
+                    attrs: {
+                      src: "https://cdn.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-1520x800.png",
+                      alt: "...",
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "carousel-item" }, [
+                  _c("img", {
+                    staticClass: "d-block w-100",
+                    attrs: {
+                      src: "https://i1.wp.com/img.phonandroid.com/2021/11/comment-reduire-taille-poids-image.jpg",
+                      alt: "...",
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "carousel-item" }, [
+                  _c("img", {
+                    staticClass: "d-block w-100",
+                    attrs: {
+                      src: "https://blog.hubspot.com/hubfs/Developer%20centering%20images%20in%20HTML.jpg",
+                      alt: "...",
+                    },
+                  }),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "carousel-control-prev",
+                  attrs: {
+                    type: "button",
+                    "data-bs-target": "#carouselExampleControls",
+                    "data-bs-slide": "prev",
+                  },
+                },
+                [
+                  _c("span", {
+                    staticClass: "carousel-control-prev-icon",
+                    attrs: { "aria-hidden": "true" },
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "visually-hidden" }, [
+                    _vm._v("Previous"),
+                  ]),
+                ]
               ),
-              _c("br"),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header text-dark" }, [
-              _vm._v("User Component"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body text-dark" }, [
-              _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                    "
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "carousel-control-next",
+                  attrs: {
+                    type: "button",
+                    "data-bs-target": "#carouselExampleControls",
+                    "data-bs-slide": "next",
+                  },
+                },
+                [
+                  _c("span", {
+                    staticClass: "carousel-control-next-icon",
+                    attrs: { "aria-hidden": "true" },
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "visually-hidden" }, [
+                    _vm._v("Next"),
+                  ]),
+                ]
               ),
-              _c("br"),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header text-dark" }, [
-              _vm._v("User Component"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body text-dark" }, [
-              _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                    "
-              ),
-              _c("br"),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header text-dark" }, [
-              _vm._v("User Component"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body text-dark" }, [
-              _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                    "
-              ),
-              _c("br"),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header text-dark" }, [
-              _vm._v("User Component"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body text-dark" }, [
-              _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                    "
-              ),
-              _c("br"),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header text-dark" }, [
-              _vm._v("User Component"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body text-dark" }, [
-              _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                    "
-              ),
-              _c("br"),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header text-dark" }, [
-              _vm._v("User Component"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body text-dark" }, [
-              _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                    "
-              ),
-              _c("br"),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header text-dark" }, [
-              _vm._v("User Component"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body text-dark" }, [
-              _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                    "
-              ),
-              _c("br"),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header text-dark" }, [
-              _vm._v("User Component"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body text-dark" }, [
-              _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                    "
-              ),
-              _c("br"),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header text-dark" }, [
-              _vm._v("User Component"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body text-dark" }, [
-              _vm._v(
-                "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                    "
-              ),
-              _c("br"),
-            ]),
-          ]),
+            ]
+          ),
         ]),
       ]),
     ])
@@ -31174,35 +31062,97 @@ var render = function () {
                     expression: "group",
                   },
                 },
-                _vm._l(_vm.items, function (item) {
+                _vm._l(_vm.items, function (item, i) {
                   return _c(
-                    "v-list-item",
-                    { key: item.title, attrs: { link: "", to: item.path } },
+                    "div",
                     [
-                      _c(
-                        "v-list-item-icon",
-                        [_c("v-icon", [_vm._v(_vm._s(item.icon))])],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-item-content",
-                        [
-                          _c("v-list-item-title", [
-                            _vm._v(
-                              "\n                " +
-                                _vm._s(item.title) +
-                                "\n            "
-                            ),
-                          ]),
-                        ],
-                        1
-                      ),
+                      !item.items
+                        ? _c(
+                            "v-list-item",
+                            { key: i, attrs: { link: "", to: item.path } },
+                            [
+                              _c(
+                                "v-list-item-icon",
+                                [_c("v-icon", [_vm._v(_vm._s(item.icon))])],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-list-item-content",
+                                [
+                                  _c("v-list-item-title", [
+                                    _vm._v(
+                                      "\n                            " +
+                                        _vm._s(item.title) +
+                                        "\n                        "
+                                    ),
+                                  ]),
+                                ],
+                                1
+                              ),
+                            ],
+                            1
+                          )
+                        : _c(
+                            "v-list-group",
+                            {
+                              key: item.title,
+                              attrs: { "no-action": "" },
+                              scopedSlots: _vm._u(
+                                [
+                                  {
+                                    key: "activator",
+                                    fn: function () {
+                                      return [
+                                        _c(
+                                          "v-list-item-content",
+                                          [
+                                            _c("v-list-item-title", [
+                                              _vm._v(
+                                                "\n                                " +
+                                                  _vm._s(item.title) +
+                                                  "\n                            "
+                                              ),
+                                            ]),
+                                          ],
+                                          1
+                                        ),
+                                      ]
+                                    },
+                                    proxy: true,
+                                  },
+                                ],
+                                null,
+                                true
+                              ),
+                            },
+                            [
+                              _vm._v(" "),
+                              _vm._l(item.items, function (child) {
+                                return _c(
+                                  "v-list-item",
+                                  {
+                                    key: child.title,
+                                    attrs: { link: "", to: child.path },
+                                  },
+                                  [
+                                    _c("v-list-item-title", {
+                                      domProps: {
+                                        textContent: _vm._s(child.title),
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                )
+                              }),
+                            ],
+                            2
+                          ),
                     ],
                     1
                   )
                 }),
-                1
+                0
               ),
             ],
             1
@@ -92887,7 +92837,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_vue__;
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21","name":"axios","escapedName":"axios","rawSpec":"^0.21","saveSpec":null,"fetchSpec":"^0.21"},"_requiredBy":["#DEV:/","#USER"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21","_where":"C:\\\\laragon\\\\www\\\\equiz-laravel","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\Users\\\\falaqin\\\\work\\\\equiz-laravel"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\Users\\\\falaqin\\\\work\\\\equiz-laravel","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
