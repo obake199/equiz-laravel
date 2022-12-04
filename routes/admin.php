@@ -14,7 +14,12 @@ use App\Http\Controllers\Admin\AdminController;
 |
 */
 
+Route::get('/', [AdminController::class, 'adminRoutes']);
+Route::get('/login', function () {
+    return view('sign-in.index');
+});
 
+// if admin is logged in, go through middleware
 Route::middleware('auth')->group(function () {
-    Route::get('/', [AdminController::class, 'adminRoutes']);
+
 });
